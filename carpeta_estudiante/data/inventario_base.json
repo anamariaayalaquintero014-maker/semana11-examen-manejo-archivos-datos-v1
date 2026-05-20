@@ -1,0 +1,6 @@
+[
+  {"codigo":"INS-001","nombre":"Concentrado animal","stock":12,"unidad":"bultos"},
+  {"codigo":"INS-002","nombre":"Fertilizante organico","stock":8,"unidad":"sacos"},
+  {"codigo":"INS-003","nombre":"Semilla de maiz","stock":0,"unidad":"kilos"},
+  {"codigo":"INS-004","nombre":"Vacuna bovina","stock":-3,"unidad":"dosis"}
+]

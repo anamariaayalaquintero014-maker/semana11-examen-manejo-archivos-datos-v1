@@ -1,0 +1,144 @@
+:root {
+  --bg: #eef5f0;
+  --panel: #ffffff;
+  --text: #19352b;
+  --muted: #61736b;
+  --primary: #146c43;
+  --primary-dark: #0d4f31;
+  --danger: #a21f1f;
+  --warning: #9a6100;
+  --ok: #12663b;
+  --border: #d8e4dc;
+  --shadow: 0 18px 40px rgba(25, 53, 43, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #eef5f0 0%, #dfeee5 100%);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 42px 8vw;
+  color: white;
+  background: linear-gradient(135deg, #0d4f31 0%, #178557 100%);
+}
+
+.hero h1 { margin: 6px 0; font-size: clamp(2rem, 5vw, 4rem); }
+.hero p { max-width: 760px; line-height: 1.5; }
+.tag { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; opacity: 0.85; }
+
+.hero-card {
+  min-width: 220px;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+.hero-card strong, .hero-card span { display: block; }
+.hero-card span { margin-top: 8px; opacity: 0.9; }
+
+.layout {
+  width: min(1180px, 92vw);
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.span-2 { grid-column: span 2; }
+h2 { margin-top: 0; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+label { font-weight: 700; color: var(--text); }
+input, select {
+  width: 100%;
+  margin-top: 7px;
+  padding: 12px 13px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+}
+.full { grid-column: span 2; }
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { background: var(--primary-dark); }
+button.danger { background: var(--danger); }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hint { color: var(--muted); }
+code { background: #eef5f0; padding: 2px 5px; border-radius: 6px; }
+
+.message {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f8faf9;
+}
+.message.ok { color: var(--ok); background: #e8f7ef; border-color: #bee8ce; }
+.message.warning { color: var(--warning); background: #fff6df; border-color: #f0d793; }
+.message.error { color: var(--danger); background: #fdecec; border-color: #f4b6b6; }
+
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.cards article {
+  padding: 18px;
+  border-radius: 18px;
+  background: #f4faf6;
+  border: 1px solid var(--border);
+}
+.cards span { color: var(--muted); display: block; margin-bottom: 8px; }
+.cards strong { font-size: 2rem; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; border-bottom: 1px solid var(--border); text-align: left; }
+th { background: #f4faf6; }
+.badge { padding: 5px 9px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; }
+.badge.ok { background: #dcf7e7; color: var(--ok); }
+.badge.warning { background: #fff1c9; color: var(--warning); }
+.badge.error { background: #ffe2e2; color: var(--danger); }
+
+.inventory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.inventory-item { padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: #f9fcfa; }
+.inventory-item strong { display: block; margin-bottom: 6px; }
+.inventory-empty { color: var(--muted); }
+
+footer { text-align: center; color: var(--muted); padding: 20px; }
+
+@media (max-width: 780px) {
+  .hero { flex-direction: column; align-items: flex-start; }
+  .layout { grid-template-columns: 1fr; }
+  .span-2 { grid-column: span 1; }
+  .form-grid { grid-template-columns: 1fr; }
+  .full { grid-column: span 1; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}

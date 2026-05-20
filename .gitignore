@@ -1,0 +1,20 @@
+# Material privado del profesor
+carpeta_profesor/
+README_SOLO_PROFESOR.md
+solucion-final/
+
+# Archivos comprimidos y backups
+*.zip
+*.rar
+*.7z
+*_backup*
+*_copia*
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log

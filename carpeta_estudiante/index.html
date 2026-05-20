@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroData Exam - Semana 11</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="tag">Semana 11 - Examen practico</p>
+      <h1>AgroData Exam</h1>
+      <p>Manejo de archivos, datos simples, integridad y organizacion de informacion.</p>
+    </div>
+    <div class="hero-card">
+      <strong>Objetivo</strong>
+      <span>Validar, organizar y reportar datos rurales.</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Registro manual de produccion</h2>
+      <form id="formRegistro" class="form-grid">
+        <label>
+          Fecha
+          <input id="fecha" type="date" />
+        </label>
+        <label>
+          Producto
+          <input id="producto" type="text" placeholder="Ej: Leche" />
+        </label>
+        <label>
+          Cantidad
+          <input id="cantidad" type="text" placeholder="Ej: 18" />
+        </label>
+        <label>
+          Unidad
+          <select id="unidad">
+            <option value="">Seleccione</option>
+            <option value="litros">Litros</option>
+            <option value="kilos">Kilos</option>
+            <option value="racimos">Racimos</option>
+            <option value="bultos">Bultos</option>
+            <option value="unidades">Unidades</option>
+          </select>
+        </label>
+        <label class="full">
+          Responsable
+          <input id="responsable" type="text" placeholder="Nombre del responsable" />
+        </label>
+        <button type="submit">Registrar dato</button>
+      </form>
+      <div id="mensaje" class="message neutral">Esperando registro...</div>
+    </section>
+
+    <section class="panel">
+      <h2>Carga y revision de archivos</h2>
+      <p class="hint">Carga datos de prueba desde los archivos de la carpeta <code>data</code>.</p>
+      <div class="actions">
+        <button id="btnCargarCSV">Cargar CSV de produccion</button>
+        <button id="btnCargarJSON">Cargar JSON de inventario</button>
+        <button id="btnExportar">Exportar reporte JSON</button>
+        <button id="btnLimpiar" class="danger">Limpiar datos</button>
+      </div>
+      <div id="diagnosticoArchivos" class="message neutral">Aun no se han cargado archivos.</div>
+    </section>
+
+    <section class="panel span-2">
+      <h2>Resumen de integridad</h2>
+      <div class="cards">
+        <article>
+          <span>Total registros</span>
+          <strong id="kpiRegistros">0</strong>
+        </article>
+        <article>
+          <span>Total produccion</span>
+          <strong id="kpiTotal">0</strong>
+        </article>
+        <article>
+          <span>Promedio</span>
+          <strong id="kpiPromedio">0</strong>
+        </article>
+        <article>
+          <span>Alertas</span>
+          <strong id="kpiAlertas">0</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel span-2">
+      <h2>Registros de produccion</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Unidad</th>
+              <th>Responsable</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tablaRegistros"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel span-2">
+      <h2>Inventario importado</h2>
+      <div id="inventarioLista" class="inventory-empty">No hay inventario cargado.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Examen practico para validar manejo de archivos, datos simples e integridad de informacion.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
