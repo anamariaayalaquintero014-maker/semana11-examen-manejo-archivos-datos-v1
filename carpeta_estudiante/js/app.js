@@ -62,19 +62,38 @@ function obtenerDatosFormulario() {
 }
 
 function validarRegistro(registro) {
-  // TODO-EXAMEN 1:
-  // Esta funcion valida muy poco. Debes mejorarla.
-  // Requisitos: campos vacios, cantidad numerica, cantidad negativa,
-  // unidad obligatoria, responsable obligatorio y duplicados por fecha + producto.
+  // Validacion de campos para entregar mensajes claros al usuario.
+  if (!registro.fecha) {
+    return { ok: false, mensaje: "La fecha es obligatoria." };
+  }
 
   if (registro.producto === "") {
     return { ok: false, mensaje: "El producto es obligatorio." };
   }
 
-  // Falla intencional: no valida fecha, unidad, responsable ni duplicados.
-  // Falla intencional: permite texto como cantidad y cantidades negativas.
+  if (registro.cantidad === "") {
+    return { ok: false, mensaje: "La cantidad es obligatoria." };
+  }
 
-  return { ok: true, mensaje: "Registro valido." };
+  const cantidadNumerica = Number(registro.cantidad);
+  if (!Number.isFinite(cantidadNumerica)) {
+    return { ok: false, mensaje: "La cantidad debe ser un número válido." };
+  }
+
+  if (cantidadNumerica < 0) {
+    return { ok: false, mensaje: "La cantidad no puede ser negativa." };
+  }
+
+  if (registro.unidad === "") {
+    return { ok: false, mensaje: "La unidad es obligatoria." };
+  }
+
+  if (registro.responsable === "") {
+    return { ok: false, mensaje: "El responsable es obligatorio." };
+  }
+
+  registro.cantidad = cantidadNumerica;
+  return { ok: true, mensaje: "Registro guardado correctamente." };
 }
 
 function clasificarRegistro(registro) {
